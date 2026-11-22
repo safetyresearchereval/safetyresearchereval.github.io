@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FrontierAIR</title>
-<meta name="description" content="An evaluation of whether AI models can make the research decisions and designs of frontier AI research with minimal human guidance.">
+<title>SafetyResearcherEval</title>
+<meta name="description" content="An evaluation of whether AI models can make the research decisions and designs of AI safety research with minimal human guidance.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@ header.nav nav { display: flex; gap: 22px; flex: 1; }
 header.nav nav a { color: var(--text-secondary); font-size: 14.5px; font-weight: 500; }
 header.nav nav a:hover { color: var(--text-primary); text-decoration: none; }
 .icon-btn { border: 1px solid var(--border); background: var(--surface-1); color: var(--text-secondary); border-radius: 999px; height: 32px; padding: 0 12px; font: inherit; font-size: 13px; cursor: pointer; }
-@media (max-width: 760px) { header.nav nav { gap: 14px; overflow-x: auto; } header.nav nav a { font-size: 13.5px; white-space: nowrap; } .brand span { display: none; } }
+@media (max-width: 760px) { header.nav nav { gap: 14px; overflow-x: auto; } header.nav nav a { font-size: 13.5px; white-space: nowrap; } .brand span { display: none; } .brand { font-size: 15px; } .brand .bt small { display: none; } }
 
 /* hero */
 .hero { position: relative; padding: 84px 0 56px; text-align: center; overflow: hidden; }
@@ -245,7 +245,7 @@ footer a { color: var(--text-secondary); }
 <div id="tip" role="status"></div>
 
 <header class="nav"><div class="wrap">
-  <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span><div class="bt"><div>Frontier<b class="b-ai">AI</b><b class="b-r">R</b></div><small>Frontier AI Research</small></div></a>
+  <a class="brand" href="#top"><span class="mark" aria-hidden="true"></span><div class="bt"><div>Safety<b class="b-ai">Researcher</b><b class="b-r">Eval</b></div><small>Research judgment in AI safety</small></div></a>
   <nav aria-label="Main"><a href="#leaderboard">Results</a><a href="#tasks">Tasks</a><a href="#cases">Case studies</a><a href="#contribute">Contribute</a><a href="#team">Team</a></nav>
   <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">Theme</button>
 </div></header>
@@ -254,14 +254,14 @@ footer a { color: var(--text-secondary); }
 <div class="wrap">
   <section class="hero">
     <span class="badge"><span class="dot"></span>Preview · 4 projects · 27 tasks</span>
-    <h1>Can AI models make research decisions and designs in frontier AI research with minimal human guidance?</h1>
-    <p class="sub">AI for automated research looks more promising every month, yet most of the time we still cannot trust it to carry a research project from idea to result on its own. We built this evaluation to find out why. Each task comes from a real research project. Given the project's high-level idea, the model has to make a decision or design the author actually made. The answer is graded against rubric items written from the author's own decisions.</p>
+    <h1>Can AI models make the research decisions and designs of AI safety research with minimal human guidance?</h1>
+    <p class="sub">AI agents are starting to take on parts of AI safety research, yet most of the time we still cannot trust them to carry a research project from idea to result on its own. We built this evaluation to find out why. Each task comes from a real AI safety research project. Given the project's high-level idea, the model has to make a decision or design the author actually made. The answer is graded against rubric items written from the author's own decisions.</p>
     <div class="stats"><span><b>27</b>tasks</span><span><b>4</b>projects</span><span><b>3</b>research steps</span><span><b>9</b>models</span><span><b>3</b>scaffolds</span></div>
     <div class="cta"><a class="btn primary" href="#leaderboard">See the results</a><a class="btn" href="#contribute">Contribute a project</a><a class="btn" href="#tasks">Browse tasks</a></div>
   </section>
 
   <div class="steps" aria-label="What we test">
-    <div class="step"><div><span class="lv">L0</span><h3>Design the main method</h3></div><p>Can the model design the main method, or the evaluation, given a high-level research idea?</p><p class="req"><b>Tests</b> frontier AI knowledge: the topic and general practice in the field.</p></div>
+    <div class="step"><div><span class="lv">L0</span><h3>Design the main method</h3></div><p>Can the model design the main method, or the evaluation, given a high-level research idea?</p><p class="req"><b>Tests</b> knowledge of AI safety research: the topic and general practice in the field.</p></div>
     <div class="step"><div><span class="lv">L1</span><h3>Choose what to study</h3></div><p>How close are the research questions AI models consider important to the ones the authors prioritised, and where do they differ?</p><p class="req"><b>Tests</b> research taste: weighing rigor against impact to decide what is worth studying.</p></div>
     <div class="step"><div><span class="lv">L2</span><h3>Design the experiments</h3></div><p>Can the model design a valid experiment, with every detail needed to run it, to answer a given research question?</p><p class="req"><b>Tests</b> understanding of the research question, rigor, and evaluation design.</p></div>
   </div>
@@ -270,7 +270,7 @@ footer a { color: var(--text-secondary); }
     <div class="rqs-h">More questions we want to answer</div>
     <ul>
       <li>How good are models at <b>evaluation research</b>, compared with <b>training research</b>?</li>
-      <li>How good are models at <b>safety research</b>, compared with <b>capabilities research</b>?</li>
+      <li>Which <b>areas of AI safety research</b> are models strongest and weakest in?</li>
     </ul>
     <p>The preview's four projects are too few to settle either question; each project contributed adds the evidence. <a href="#contribute">Contribute a project</a></p>
   </div>
@@ -300,7 +300,7 @@ footer a { color: var(--text-secondary); }
   <section class="sec" id="tasks">
     <div class="eyebrow">Tasks</div>
     <h2>Decisions authors actually made</h2>
-    <p class="lead">Tasks are mined from each project's paper, code and git history. The projects span <b>training</b> and <b>evaluation</b> research, in both <b>safety</b> and <b>capabilities</b>. The author decides on every task and adds rubric items and tasks of their own, and another expert AI researcher reviews each one. Shown here is a selection of tasks from each project. Each square is one frontier model in one scaffold. Shade shows how much of the rubric it satisfied, and a dot marks strict success.</p>
+    <p class="lead">Tasks are mined from each project's paper, code and git history. The projects span <b>training</b> and <b>evaluation</b> research across four areas of AI safety so far. The author decides on every task and adds rubric items and tasks of their own, and another expert AI researcher reviews each one. Shown here is a selection of tasks from each project. Each square is one frontier model in one scaffold. Shade shows how much of the rubric it satisfied, and a dot marks strict success.</p>
     <div class="controls"><div class="seg" id="tLevel" role="group" aria-label="Level"></div><div class="seg" id="tProj" role="group" aria-label="Project"></div></div>
     <div class="sqlegend" id="sqLegend"></div>
     <div class="tgrid" id="tGrid"></div>
@@ -315,7 +315,7 @@ footer a { color: var(--text-secondary); }
       <div class="proj"><div class="tags"><span class="tag">AI control</span></div><b>RSI-Control</b><p>Can an AI agent asked to train its successor model secretly sabotage that training while still doing the job, and do monitors catch it? The successors are small open models trained in a job of a few hours. <a href="https://arxiv.org/abs/2610.27735" target="_blank" rel="noopener">Paper</a></p></div>
       <div class="proj"><div class="tags"><span class="tag">Agent security</span></div><b>ASPI</b><p>When a tool-using assistant gets an incomplete request, it asks the user a clarifying question. Does that exchange make prompt injection more effective? <a href="https://arxiv.org/abs/2605.17324" target="_blank" rel="noopener">Paper</a></p></div>
       <div class="proj"><div class="tags"><span class="tag">Monitoring</span></div><b>Probing misaligned reasoning</b><p>Linear probes on a reasoning model's activations, one per pattern of misaligned reasoning and trained only on synthetic data, as a cheaper monitor than an LLM judge. <a href="https://arxiv.org/abs/2606.24251" target="_blank" rel="noopener">Paper</a></p></div>
-      <div class="proj"><div class="tags"><span class="tag">RL post-training</span></div><b>Rubric Dropout</b><p>In rubric-based RL, a judge scores each response against weighted criteria, and the policy learns to game this fixed reward. Rubric Dropout randomly drops criteria from the reward at each step. <a href="https://arxiv.org/abs/2608.11669" target="_blank" rel="noopener">Paper</a></p></div>
+      <div class="proj"><div class="tags"><span class="tag">Reward hacking</span></div><b>Rubric Dropout</b><p>In rubric-based RL, a judge scores each response against weighted criteria, and the policy learns to game this fixed reward. Rubric Dropout randomly drops criteria from the reward at each step. <a href="https://arxiv.org/abs/2608.11669" target="_blank" rel="noopener">Paper</a></p></div>
     </div>
     <div class="cgrid">
       <article class="card case"><div class="casehead"><div class="eyebrow" style="color:var(--text-muted)">Project judgment</div><div class="tags"><span class="tag lv">L0</span><span class="tag lv">L2</span></div></div><h3>General practice, but not what the project specifically requires</h3>
@@ -391,14 +391,15 @@ footer a { color: var(--text-secondary); }
   <section class="sec" id="contribute">
     <div class="eyebrow">Contribute</div>
     <h2>Turn your project into tasks, or review others'</h2>
-    <p class="lead">A coding agent does the reading, drafting and checking; you make every decision. <b>Data contributors who meet the threshold are recognized contributors in the FrontierAIR paper.</b></p>
+    <p class="lead">A coding agent does the reading, drafting and checking; you make every decision. <b>Data contributors who meet the threshold are recognized contributors in the SafetyResearcherEval paper.</b></p>
     <div class="card joinband" style="margin:0 0 16px">
       <ol><li>Fill in the <a href="https://docs.google.com/forms/d/1RXWV7t8GP10OTku-LNg8I29Mu6Negnji3a4KyzzU9to/viewform" target="_blank" rel="noopener">expression-of-interest form</a>. It takes about 3 minutes.</li><li>We select contributors and invite them to the private repository.</li><li>Start your coding agent in the repository and say "I want to create tasks from my project".</li></ol>
       <div style="display:grid;gap:8px;justify-items:end"><div class="cta"><a class="btn primary" href="https://docs.google.com/forms/d/1RXWV7t8GP10OTku-LNg8I29Mu6Negnji3a4KyzzU9to/viewform" target="_blank" rel="noopener" id="formLink">Express interest (3 min)</a></div><div class="small muted">Questions: <a href="mailto:kaiwen.zhou@scale.com">kaiwen.zhou@scale.com</a> · <a href="/terms/">Competition Terms</a></div></div>
     </div>
+    <div class="card" style="padding:18px 20px;margin:0 0 16px"><b>Research areas</b><p class="small" style="color:var(--text-secondary);margin:4px 0 10px">We take recent papers in AI safety research, including these areas. Chemical, biological, radiological, nuclear, cyberweapons and virology topics are out of scope (see the <a href="/terms/">Competition Terms</a>).</p><div class="tags"><span class="tag">AI control &amp; monitoring</span><span class="tag">Agent security &amp; adversarial robustness</span><span class="tag">Reward hacking &amp; specification gaming</span><span class="tag">Alignment evaluation: scheming, deception, sandbagging</span><span class="tag">Interpretability for safety</span><span class="tag">Honesty &amp; sycophancy</span><span class="tag">Alignment training methods</span><span class="tag">Scalable oversight</span><span class="tag">Multi-agent safety</span><span class="tag">Other alignment science</span></div></div>
     <div class="roles">
       <div class="card role"><h3>Task contributor</h3><span class="time">10 to 15 hours per paper</span>
-        <p>You are an author of a recent paper and have its code repository with the git history of the work.</p>
+        <p>You are an author of a recent AI safety paper and have its code repository with the git history of the work.</p>
         <p>You run our pipeline with a coding agent. The agent drafts tasks from your paper and history and goes through them with you one by one; you keep, change or drop each one, add rubric items or tasks of your own, and later answer the reviewers' suggestions.</p></div>
       <div class="card role"><h3>Reviewer</h3><span class="time">6 to 8 hours per paper</span>
         <p>You are a researcher in the paper's area, and not the author who contributed its tasks.</p>
@@ -550,7 +551,7 @@ footer a { color: var(--text-secondary); }
   </section>
   <section class="sec" id="team">
     <div class="eyebrow">Team</div>
-    <h2>Who builds FrontierAIR</h2>
+    <h2>Who builds SafetyResearcherEval</h2>
     <div class="team">
       <div class="card"><h3>Core contributors</h3><ul><li><a href="https://kevinz-01.github.io/" target="_blank" rel="noopener">Kaiwen Zhou</a></li><li><a href="https://ymingl.com/" target="_blank" rel="noopener">Minglai Yang</a></li><li><a href="https://scholar.google.com/citations?user=3tbp3T4AAAAJ" target="_blank" rel="noopener">Renxiong Wang</a></li><li><a href="https://www.bu.edu/cds-faculty/profile/zhengyang-shan/" target="_blank" rel="noopener">Zhengyang Shan</a></li><li><a href="https://elegantlin.github.io/" target="_blank" rel="noopener">Zonglin Di</a></li></ul></div>
       <div class="card"><h3>Advisors</h3><ul><li><a href="https://tzhao.io/" target="_blank" rel="noopener">Tong Zhao</a></li><li><a href="https://scholar.google.com/citations?user=6AS13MgAAAAJ" target="_blank" rel="noopener">Yunzhong He</a></li><li><a href="https://udarimadhu.github.io/" target="_blank" rel="noopener">Udari Madhushani Sehwag</a></li></ul></div>
@@ -561,7 +562,7 @@ footer a { color: var(--text-secondary); }
 </main>
 
 <footer><div class="wrap">
-  <div><div class="brand" style="font-size:15px"><span class="mark" aria-hidden="true"></span><div>Frontier<b class="b-ai">AI</b><b class="b-r">R</b> <span class="b-full">(Frontier AI Research)</span></div></div><div style="margin-top:6px;max-width:420px">An evaluation of research judgment, built from the decisions of real frontier AI research projects.</div></div>
+  <div><div class="brand" style="font-size:15px"><span class="mark" aria-hidden="true"></span><div>Safety<b class="b-ai">Researcher</b><b class="b-r">Eval</b></div></div><div style="margin-top:6px;max-width:420px">An evaluation of research judgment, built from the decisions of real AI safety research projects.</div></div>
   <div style="display:flex;gap:28px;flex-wrap:wrap"><a href="#leaderboard">Results</a><a href="#tasks">Tasks</a><a href="#cases">Case studies</a><a href="#contribute">Contribute</a><a href="#team">Team</a><a href="/terms/">Competition Terms</a><span>Contact: <a href="mailto:kaiwen.zhou@scale.com">kaiwen.zhou@scale.com</a></span></div>
 </div></footer>
 
